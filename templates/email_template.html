@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #334155; }
+        .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .header { background: #0f172a; padding: 30px; text-align: center; }
+        .header h1 { color: #ffffff; font-size: 20px; margin: 0; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+        .content { padding: 40px; line-height: 1.8; font-size: 15px; }
+        
+        /* Tombol Kontak */
+        .btn-container { margin-top: 35px; display: table; width: 100%; }
+        .btn { display: inline-block; background-color: #0f172a; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; margin-right: 8px; margin-bottom: 8px; border: 1px solid #0f172a; }
+        .btn-red { background-color: #ffffff; color: #dc2626; border: 1px solid #dc2626; }
+        .icon-btn { vertical-align: middle; width: 18px; height: 18px; margin-right: 6px; position: relative; top: -2px; }
+
+        /* Social Media Icons Style */
+        .social-section { margin-top: 25px; padding-top: 25px; border-top: 1px dashed #cbd5e1; }
+        .social-label { font-size: 11px; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px; margin-bottom: 12px; display: block; font-weight: bold; }
+        .social-link { text-decoration: none; margin-right: 15px; display: inline-block; transition: opacity 0.2s; }
+        .social-link:hover { opacity: 0.7; }
+        .social-icon { width: 32px; height: 32px; vertical-align: middle; }
+        
+        .footer { background: #f1f5f9; padding: 20px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; }
+        .footer a { color: #475569; text-decoration: none; font-weight: bold; }
+        .footer a:hover { text-decoration: underline; color: #0f172a; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Lamaran Pekerjaan</h1>
+            <div style="color: #94a3b8; font-size: 13px; margin-top: 5px;">Posisi: {{ position }}</div>
+        </div>
+
+        <div class="content">
+            <p>Yth. Bapak/Ibu HRD <strong>{{ company }}</strong>,</p>
+            
+            <p>Semoga Bapak/Ibu dalam keadaan sehat. 👋</p>
+            
+            <p>Perkenalkan, saya <strong>{{ applicant_name }}</strong>. Melalui email ini, saya ingin menyampaikan ketertarikan dan antusiasme saya untuk melamar posisi <strong>{{ position }}</strong> di perusahaan yang Bapak/Ibu pimpin.</p>
+            
+            <p>Saya percaya bahwa keterampilan dan pengalaman yang saya miliki dapat memberikan kontribusi positif bagi tim dan pertumbuhan perusahaan. Saya adalah pribadi yang disiplin, cepat belajar, dan siap bekerja keras untuk mencapai target bersama.</p>
+            
+            <p>Sebagai bahan pertimbangan lebih lanjut, saya telah melampirkan <strong>Curriculum Vitae (CV)</strong> terbaru dalam format PDF pada email ini.</p>
+            
+            <p>Besar harapan saya untuk dapat diberikan kesempatan wawancara agar dapat menjelaskan potensi saya secara lebih rinci. Terima kasih banyak atas waktu dan perhatian Bapak/Ibu.</p>
+            
+            <br>
+            <p style="margin-bottom: 5px;">Hormat Saya,</p>
+            <p style="font-weight: bold; font-size: 16px; margin-top: 0; color: #0f172a;">{{ applicant_name }}</p>
+
+            <div class="btn-container">
+                <a href="https://wa.me/{{ whatsapp }}" class="btn">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" class="icon-btn"> Hubungi WhatsApp
+                </a>
+                <a href="mailto:{{ applicant_email }}" class="btn btn-red">
+                    <img src="https://img.icons8.com/ios-filled/50/dc2626/mail.png" class="icon-btn"> Balas Email
+                </a>
+            </div>
+
+            {% if facebook or instagram or tiktok or github %}
+            <div class="social-section">
+                <span class="social-label">Jejak Digital & Portofolio:</span>
+                
+                {% if facebook %}
+                <a href="https://facebook.com/{{ facebook }}" class="social-link" title="Facebook">
+                    <img src="https://img.icons8.com/color/48/facebook-new.png" class="social-icon">
+                </a>
+                {% endif %}
+
+                {% if instagram %}
+                <a href="https://instagram.com/{{ instagram }}" class="social-link" title="Instagram">
+                    <img src="https://img.icons8.com/fluency/48/instagram-new.png" class="social-icon">
+                </a>
+                {% endif %}
+
+                {% if tiktok %}
+                <a href="https://tiktok.com/@{{ tiktok }}" class="social-link" title="TikTok">
+                    <img src="https://img.icons8.com/color/48/tiktok--v1.png" class="social-icon">
+                </a>
+                {% endif %}
+
+                {% if github %}
+                <a href="https://github.com/{{ github }}" class="social-link" title="GitHub">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" class="social-icon">
+                </a>
+                {% endif %}
+            </div>
+            {% endif %}
+
+        </div>
+
+        <div class="footer">
+            Dikirim secara profesional menggunakan <strong>JobSender Pro</strong>.<br>
+            <a href="https://github.com/oziy-id" target="_blank">Created by Ozi / Developed Ozi</a>
+        </div>
+    </div>
+</body>
+</html>
