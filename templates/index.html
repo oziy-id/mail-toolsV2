@@ -3,149 +3,169 @@
 {% block content %}
 
 <style>
-    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    
     .animate-float-slow { animation: float 6s ease-in-out infinite; }
     .animate-float-medium { animation: float 5s ease-in-out infinite; }
     .animate-float-fast { animation: float 4s ease-in-out infinite; }
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
     
-    .marquee-container { overflow: hidden; white-space: nowrap; position: relative; width: 100%; mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent); }
-    .marquee-content { display: inline-flex; animation: scroll 20s linear infinite; }
-    .marquee-content-reverse { display: inline-flex; animation: scroll-reverse 20s linear infinite; }
+    .marquee-container { overflow: hidden; white-space: nowrap; position: relative; width: 100%; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+    .marquee-content { display: inline-flex; animation: scroll 25s linear infinite; }
+    .marquee-content-reverse { display: inline-flex; animation: scroll-reverse 25s linear infinite; }
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     @keyframes scroll-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-    .text-outline { -webkit-text-stroke: 1px #cbd5e1; color: transparent; font-weight: 900; text-transform: uppercase; font-size: 5rem; }
+    .text-outline { -webkit-text-stroke: 1px #e2e8f0; color: transparent; font-weight: 900; text-transform: uppercase; font-size: 6rem; letter-spacing: -2px; }
 
-    .shield-container { perspective: 800px; }
-    .shield-3d { transform-style: preserve-3d; animation: rotateShield 6s ease-in-out infinite; }
-    @keyframes rotateShield { 0% { transform: rotateY(-15deg); } 50% { transform: rotateY(15deg); } 100% { transform: rotateY(-15deg); } }
+    .shield-container { perspective: 1000px; }
+    .shield-3d { transform-style: preserve-3d; animation: rotateShield 8s ease-in-out infinite; }
+    @keyframes rotateShield { 0% { transform: rotateY(-10deg); } 50% { transform: rotateY(10deg); } 100% { transform: rotateY(-10deg); } }
 </style>
 
-<div class="fixed top-24 left-0 w-full -z-20 opacity-30 pointer-events-none space-y-4">
-    <div class="marquee-container"><div class="marquee-content-reverse gap-20"><span class="text-outline">JOBSENDER PRO</span><span class="text-outline">JOBSENDER PRO</span></div></div>
-    <div class="marquee-container"><div class="marquee-content gap-20"><span class="text-outline">OZI GITHUB</span><span class="text-outline">OZI GITHUB</span></div></div>
+<div class="fixed top-32 left-0 w-full -z-20 opacity-20 pointer-events-none select-none">
+    <div class="marquee-container mb-4"><div class="marquee-content-reverse gap-32"><span class="text-outline">JOBSENDER</span><span class="text-outline">JOBSENDER</span></div></div>
+    <div class="marquee-container"><div class="marquee-content gap-32"><span class="text-outline">OZI GITHUB</span><span class="text-outline">OZI GITHUB</span></div></div>
 </div>
 
-<div class="max-w-7xl mx-auto px-4 mb-16 pt-6 flex flex-col md:flex-row items-center gap-10">
+<div class="max-w-7xl mx-auto px-4 mb-20 pt-8 flex flex-col md:flex-row items-center gap-12 animate-fade-in-up">
     <div class="md:w-1/2 text-center md:text-left z-10">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wide mb-6 shadow-xl">🚀 V2.6 • Final Version</div>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest mb-6 shadow-xl ring-1 ring-white/20">
+            🚀 V2.7 Final Stable
+        </div>
         <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
             Kirim Lamaran <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Tanpa Batas.</span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Tanpa Batas.</span>
         </h1>
-        <p class="text-lg text-slate-600 mb-8 leading-relaxed font-medium">Sistem multi-target otomatis dengan validasi cerdas dan privasi tingkat tinggi.</p>
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed font-medium max-w-lg mx-auto md:mx-0">
+            Platform otomasi email dengan standar korporat. Validasi cerdas, multi-target, dan privasi tingkat tinggi.
+        </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <a href="#form-area" class="px-8 py-4 bg-black text-white font-bold rounded-xl shadow-2xl hover:bg-slate-800 transition transform hover:-translate-y-1">Mulai Sekarang</a>
-            <a href="#steps-area" class="px-8 py-4 bg-white text-slate-800 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition">Cara Pakai</a>
+            <a href="#form-area" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl shadow-2xl hover:bg-black hover:scale-105 transition-all duration-300 transform active:scale-95">
+                Mulai Sekarang
+            </a>
+            <a href="#steps-area" class="px-8 py-4 bg-white text-slate-800 border border-slate-200 font-bold rounded-2xl hover:bg-slate-50 transition-all duration-300">
+                Cara Pakai
+            </a>
         </div>
     </div>
 
-    <div class="md:w-1/2 flex justify-center z-0">
-        <div class="relative w-72 h-72 animate-float-medium">
-            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-500 rounded-3xl shadow-2xl transform rotate-6 border border-white/20"></div>
-            <div class="absolute inset-2 bg-white rounded-2xl shadow-inner flex flex-col items-center justify-center p-4 transform -rotate-3 border border-slate-100">
-                <div class="w-20 h-16 bg-red-500 rounded-xl flex items-center justify-center text-white shadow-lg mb-4">
-                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <div class="md:w-1/2 flex justify-center z-0 perspective-1000">
+        <div class="relative w-72 h-80 animate-float-medium card-3d">
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-[2rem] shadow-2xl transform rotate-6 border border-white/10 opacity-90"></div>
+            <div class="absolute inset-2 bg-white rounded-[1.7rem] shadow-[inset_0_0_20px_rgba(0,0,0,0.05)] flex flex-col items-center justify-center p-6 transform -rotate-3 border border-slate-100">
+                <div class="w-20 h-16 bg-red-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-red-500/30 mb-6 relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+                    <svg class="w-10 h-10 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </div>
-                <div class="h-2 w-32 bg-slate-200 rounded mb-2"></div>
-                <div class="h-2 w-24 bg-slate-200 rounded"></div>
-                <div class="absolute top-4 right-4 w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
+                <div class="h-2.5 w-32 bg-slate-100 rounded-full mb-3"></div>
+                <div class="h-2.5 w-20 bg-slate-100 rounded-full mb-6"></div>
                 
-                <div class="mt-4 h-8 w-full bg-blue-50 rounded-lg border border-blue-100 flex items-center justify-center gap-2 text-xs font-bold text-blue-600">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <div class="h-10 w-full bg-blue-50 rounded-xl border border-blue-100 flex items-center justify-center gap-2 text-xs font-bold text-blue-600 shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                     CV_Kamu.pdf
                 </div>
+                
+                <div class="absolute top-6 right-6 w-3 h-3 bg-emerald-500 rounded-full animate-ping"></div>
+                <div class="absolute top-6 right-6 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white"></div>
             </div>
         </div>
     </div>
 </div>
 
-<div id="form-area" class="max-w-4xl mx-auto px-4 mb-24 relative z-20">
-    <div class="bg-white rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-slate-100 overflow-hidden">
-        <div class="bg-black px-8 py-6 flex justify-between items-center">
-            <h2 class="text-xl font-bold text-white">Formulir Lamaran</h2>
-            <div class="w-8 h-8 bg-slate-800 rounded flex items-center justify-center text-blue-500">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+<div id="form-area" class="max-w-4xl mx-auto px-4 mb-32 relative z-20 animate-fade-in-up delay-100">
+    <div class="bg-white/80 backdrop-blur-sm rounded-[2rem] shadow-[0_40px_100px_-15px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden ring-1 ring-slate-900/5">
+        <div class="bg-slate-900 px-8 py-6 flex justify-between items-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+            <div class="relative z-10">
+                <h2 class="text-xl font-bold text-white tracking-tight">Formulir Lamaran</h2>
+                <p class="text-slate-400 text-xs mt-0.5">Isi data dengan lengkap dan teliti.</p>
+            </div>
+            <div class="w-10 h-10 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-blue-400 relative z-10 border border-white/10">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
             </div>
         </div>
 
         <form action="/send" method="POST" enctype="multipart/form-data" id="jobForm" class="p-8 md:p-12">
             <div class="mb-10">
-                <h3 class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-6 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-                    Target Utama
+                <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-6 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span> Target Utama
                 </h3>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-900">Nama Perusahaan</label>
-                        <input type="text" name="company_name" required class="w-full px-4 py-3 rounded-md bg-white border border-slate-300 text-slate-900 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none transition-all shadow-sm" placeholder="Contoh: PT Astra Honda">
+                    <div class="space-y-2 group">
+                        <label class="text-xs font-bold text-slate-500 group-focus-within:text-blue-600 transition-colors">NAMA PERUSAHAAN</label>
+                        <input type="text" name="company_name" required class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium placeholder:text-slate-400" placeholder="Contoh: PT Astra Honda">
                     </div>
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-900">Email HRD</label>
-                        <input type="email" name="hr_email" required class="w-full px-4 py-3 rounded-md bg-white border border-slate-300 text-slate-900 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none transition-all shadow-sm" placeholder="hrd@perusahaan.com">
+                    <div class="space-y-2 group">
+                        <label class="text-xs font-bold text-slate-500 group-focus-within:text-blue-600 transition-colors">EMAIL HRD</label>
+                        <input type="email" name="hr_email" required class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium placeholder:text-slate-400" placeholder="hrd@perusahaan.com">
                     </div>
-                    <div class="space-y-2 md:col-span-2">
-                        <label class="text-sm font-bold text-slate-900">Posisi Dilamar</label>
-                        <input type="text" name="position_name" required class="w-full px-4 py-3 rounded-md bg-white border border-slate-300 text-slate-900 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none transition-all shadow-sm font-semibold" placeholder="Contoh: Operator Produksi">
+                    <div class="space-y-2 md:col-span-2 group">
+                        <label class="text-xs font-bold text-slate-500 group-focus-within:text-blue-600 transition-colors">POSISI DILAMAR</label>
+                        <input type="text" name="position_name" required class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-bold placeholder:text-slate-400" placeholder="Contoh: Operator Produksi">
                     </div>
                 </div>
 
                 <div class="mt-8">
-                    <button type="button" onclick="toggleMulti()" class="text-sm font-bold text-slate-500 hover:text-black flex items-center gap-2 transition-colors">
-                        <svg id="iconMulti" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        + Kirim ke Perusahaan Lain (Opsional)
+                    <button type="button" onclick="toggleMulti()" class="text-xs font-bold text-slate-500 hover:text-black flex items-center gap-2 transition-colors uppercase tracking-wide">
+                        <div class="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+                            <svg id="iconMulti" class="w-3 h-3 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        Kirim ke Perusahaan Lain (Opsional)
                     </button>
-                    <div id="areaMulti" class="hidden mt-4 pl-4 border-l-2 border-slate-100 space-y-6">
-                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-3">Target #2</h4>
+                    <div id="areaMulti" class="hidden mt-4 pl-3 border-l-2 border-slate-100 space-y-6">
+                        <div class="bg-slate-50/50 p-5 rounded-2xl border border-slate-200/60 hover:border-slate-300 transition-colors">
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Target #2</h4>
                             <div class="grid md:grid-cols-2 gap-4">
-                                <input type="text" name="company_name_2" class="px-4 py-2 border border-slate-300 rounded text-sm focus:border-black outline-none" placeholder="Perusahaan #2">
-                                <input type="email" name="hr_email_2" class="px-4 py-2 border border-slate-300 rounded text-sm focus:border-black outline-none" placeholder="Email HRD #2">
-                                <input type="text" name="position_name_2" class="px-4 py-2 border border-slate-300 rounded text-sm focus:border-black outline-none md:col-span-2" placeholder="Posisi di PT #2 (Opsional)">
+                                <input type="text" name="company_name_2" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-black focus:ring-0 outline-none" placeholder="Nama Perusahaan">
+                                <input type="email" name="hr_email_2" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-black focus:ring-0 outline-none" placeholder="Email HRD">
+                                <input type="text" name="position_name_2" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-black focus:ring-0 outline-none md:col-span-2" placeholder="Posisi (Opsional)">
                             </div>
                         </div>
-                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase mb-3">Target #3</h4>
+                        <div class="bg-slate-50/50 p-5 rounded-2xl border border-slate-200/60 hover:border-slate-300 transition-colors">
+                            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Target #3</h4>
                             <div class="grid md:grid-cols-2 gap-4">
-                                <input type="text" name="company_name_3" class="px-4 py-2 border border-slate-300 rounded text-sm focus:border-black outline-none" placeholder="Perusahaan #3">
-                                <input type="email" name="hr_email_3" class="px-4 py-2 border border-slate-300 rounded text-sm focus:border-black outline-none" placeholder="Email HRD #3">
-                                <input type="text" name="position_name_3" class="px-4 py-2 border border-slate-300 rounded text-sm focus:border-black outline-none md:col-span-2" placeholder="Posisi di PT #3 (Opsional)">
+                                <input type="text" name="company_name_3" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-black focus:ring-0 outline-none" placeholder="Nama Perusahaan">
+                                <input type="email" name="hr_email_3" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-black focus:ring-0 outline-none" placeholder="Email HRD">
+                                <input type="text" name="position_name_3" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-black focus:ring-0 outline-none md:col-span-2" placeholder="Posisi (Opsional)">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <hr class="border-slate-100 mb-10">
+            <div class="w-full h-px bg-slate-100 mb-10"></div>
 
             <div class="mb-10">
-                <h3 class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-6 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-                    Profil Pelamar
+                <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-6 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span> Profil Pelamar
                 </h3>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-900">Nama Lengkap</label>
-                        <input type="text" name="applicant_name" required class="w-full px-4 py-3 rounded-md bg-white border border-slate-300 text-slate-900 focus:border-blue-600 outline-none transition shadow-sm" placeholder="Nama Sesuai KTP">
+                    <div class="space-y-2 group">
+                        <label class="text-xs font-bold text-slate-500 group-focus-within:text-blue-600 transition-colors">NAMA LENGKAP</label>
+                        <input type="text" name="applicant_name" required class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium placeholder:text-slate-400" placeholder="Sesuai KTP">
                     </div>
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-900">Email Kamu</label>
-                        <input type="email" name="applicant_email" required class="w-full px-4 py-3 rounded-md bg-white border border-slate-300 text-slate-900 focus:border-blue-600 outline-none transition shadow-sm" placeholder="Wajib diisi">
+                    <div class="space-y-2 group">
+                        <label class="text-xs font-bold text-slate-500 group-focus-within:text-blue-600 transition-colors">EMAIL ANDA</label>
+                        <input type="email" name="applicant_email" required class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium placeholder:text-slate-400" placeholder="Untuk konfirmasi">
                     </div>
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-900">WhatsApp</label>
-                        <input type="text" name="whatsapp" required class="w-full px-4 py-3 rounded-md bg-white border border-slate-300 text-slate-900 focus:border-blue-600 outline-none transition shadow-sm" placeholder="08xxxxxxxx">
+                    <div class="space-y-2 group">
+                        <label class="text-xs font-bold text-slate-500 group-focus-within:text-blue-600 transition-colors">WHATSAPP</label>
+                        <input type="text" name="whatsapp" required class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium placeholder:text-slate-400" placeholder="08xxxxxxxx">
                     </div>
                     
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-900">Upload CV (PDF)</label>
+                    <div class="space-y-2 group">
+                        <label class="text-xs font-bold text-slate-500 group-focus-within:text-blue-600 transition-colors">FILE CV (PDF)</label>
                         <div class="relative group">
                             <input type="file" name="cv_file" id="cvInput" accept=".pdf" required 
                                    class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
                                    onchange="updateFileName(this)">
                             
-                            <div class="w-full px-4 py-3 rounded-md border border-slate-300 bg-slate-50 text-slate-500 flex items-center justify-between group-hover:bg-white group-hover:border-blue-400 transition-all" id="uploadBox">
-                                <span class="text-sm truncate font-medium" id="fileNameText">Klik untuk pilih file PDF...</span>
-                                <div class="bg-black text-white p-1 rounded transition-colors" id="fileIconContainer">
+                            <div class="w-full px-4 py-3.5 rounded-xl border border-dashed border-slate-300 bg-slate-50 text-slate-500 flex items-center justify-between group-hover:bg-blue-50/50 group-hover:border-blue-400 transition-all duration-300" id="uploadBox">
+                                <span class="text-sm font-medium truncate min-w-0 flex-1 mr-3 select-none" id="fileNameText">Klik untuk pilih file PDF...</span>
+                                <div class="bg-slate-200 text-slate-500 p-1.5 rounded-lg flex-shrink-0 transition-colors duration-300" id="fileIconContainer">
                                     <svg id="iconUpload" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                                     <svg id="iconCheck" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 </div>
@@ -155,99 +175,96 @@
                 </div>
             </div>
 
-            <div class="mb-8 p-4 rounded-lg bg-slate-50 border border-slate-100">
-                <button type="button" onclick="toggleSosmed()" class="w-full flex justify-between items-center text-sm font-bold text-slate-700">
-                    <span>Sosial Media (Opsional)</span>
-                    <svg id="arrowSosmed" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <div class="mb-8 bg-slate-50/80 rounded-2xl border border-slate-100 overflow-hidden">
+                <button type="button" onclick="toggleSosmed()" class="w-full px-6 py-4 flex justify-between items-center text-xs font-bold text-slate-600 uppercase tracking-wide hover:bg-slate-100 transition-colors">
+                    Sosial Media (Opsional)
+                    <svg id="arrowSosmed" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div id="areaSosmed" class="hidden mt-4 grid md:grid-cols-2 gap-4">
-                    <input type="text" name="facebook" class="px-3 py-2 bg-white border border-slate-200 rounded text-sm focus:border-blue-600 outline-none" placeholder="Username Facebook">
-                    <input type="text" name="instagram" class="px-3 py-2 bg-white border border-slate-200 rounded text-sm focus:border-blue-600 outline-none" placeholder="Username Instagram">
-                    <input type="text" name="tiktok" class="px-3 py-2 bg-white border border-slate-200 rounded text-sm focus:border-blue-600 outline-none" placeholder="Username TikTok">
-                    <input type="text" name="github" class="px-3 py-2 bg-white border border-slate-200 rounded text-sm focus:border-blue-600 outline-none" placeholder="Username GitHub">
+                <div id="areaSosmed" class="hidden px-6 pb-6 grid md:grid-cols-2 gap-4">
+                    <input type="text" name="facebook" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-blue-500 outline-none" placeholder="Facebook">
+                    <input type="text" name="instagram" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-blue-500 outline-none" placeholder="Instagram">
+                    <input type="text" name="tiktok" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-blue-500 outline-none" placeholder="TikTok">
+                    <input type="text" name="github" class="px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:border-blue-500 outline-none" placeholder="GitHub">
                 </div>
             </div>
 
-            <button type="submit" id="btnSubmit" disabled class="w-full py-4 bg-slate-300 text-slate-500 font-bold rounded-lg shadow-none cursor-not-allowed transition-all duration-300 flex justify-center items-center gap-3">
+            <button type="submit" id="btnSubmit" disabled class="w-full py-4 bg-slate-200 text-slate-400 font-bold rounded-2xl shadow-none cursor-not-allowed transition-all duration-300 flex justify-center items-center gap-3">
                 <span id="btnText">UPLOAD CV DULU...</span>
-                <svg id="btnIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <svg id="btnIcon" class="w-5 h-5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                 <svg id="btnLoader" class="hidden w-5 h-5 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
             </button>
         </form>
     </div>
 </div>
 
-<div id="steps-area" class="max-w-6xl mx-auto px-4 mb-24 relative z-10">
+<div id="steps-area" class="max-w-6xl mx-auto px-4 mb-32 relative z-10 animate-fade-in-up delay-200">
     <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-slate-900">Cara Penggunaan</h2>
-        <p class="text-slate-500 mt-2">Hanya 3 langkah mudah.</p>
+        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Cara Penggunaan</h2>
+        <p class="text-slate-500 mt-2 font-medium">Hanya 3 langkah mudah untuk melamar profesional.</p>
     </div>
+    
     <div class="flex flex-col md:flex-row justify-center items-center gap-12 relative">
-        <div class="hidden md:block absolute top-1/2 left-20 right-20 h-1 bg-gradient-to-r from-blue-100 via-indigo-100 to-blue-100 -z-10 rounded-full"></div>
+        <div class="hidden md:block absolute top-1/2 left-20 right-20 h-0.5 bg-gradient-to-r from-blue-50 via-indigo-100 to-blue-50 -z-10"></div>
 
-        <div class="flex flex-col items-center animate-float-slow">
-            <div class="w-32 h-32 rounded-full bg-white border-4 border-blue-100 shadow-xl flex items-center justify-center relative hover:scale-110 transition duration-500">
-                <div class="text-4xl font-black text-blue-600">01</div>
-                <div class="absolute -top-2 -right-2 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center shadow-md">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                </div>
+        <div class="flex flex-col items-center animate-float-slow group">
+            <div class="w-28 h-28 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-blue-900/5 flex items-center justify-center relative transition-transform duration-500 group-hover:scale-110">
+                <span class="text-3xl font-black text-slate-900/10 absolute">01</span>
+                <svg class="w-10 h-10 text-blue-600 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
             </div>
-            <h3 class="mt-6 font-bold text-lg text-slate-900">Isi Data</h3>
-            <p class="text-sm text-slate-500 text-center max-w-xs mt-2">Lengkapi target perusahaan dan data diri Anda di formulir.</p>
+            <h3 class="mt-6 font-bold text-base text-slate-900">Isi Data</h3>
+            <p class="text-xs text-slate-500 text-center max-w-[150px] mt-2 leading-relaxed">Lengkapi target perusahaan dan profil Anda.</p>
         </div>
 
-        <div class="flex flex-col items-center animate-float-fast delay-75">
-            <div class="w-32 h-32 rounded-full bg-white border-4 border-indigo-100 shadow-xl flex items-center justify-center relative hover:scale-110 transition duration-500">
-                <div class="text-4xl font-black text-indigo-600">02</div>
-                <div class="absolute -top-2 -right-2 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center shadow-md">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"></path></svg>
-                </div>
+        <div class="flex flex-col items-center animate-float-fast delay-75 group">
+            <div class="w-28 h-28 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-indigo-900/5 flex items-center justify-center relative transition-transform duration-500 group-hover:scale-110">
+                <span class="text-3xl font-black text-slate-900/10 absolute">02</span>
+                <svg class="w-10 h-10 text-indigo-600 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             </div>
-            <h3 class="mt-6 font-bold text-lg text-slate-900">Upload CV</h3>
-            <p class="text-sm text-slate-500 text-center max-w-xs mt-2">Pilih file CV dalam format PDF (Maks 2MB).</p>
+            <h3 class="mt-6 font-bold text-base text-slate-900">Upload CV</h3>
+            <p class="text-xs text-slate-500 text-center max-w-[150px] mt-2 leading-relaxed">Wajib format PDF (Maksimal 2MB).</p>
         </div>
 
-        <div class="flex flex-col items-center animate-float-medium delay-150">
-            <div class="w-32 h-32 rounded-full bg-white border-4 border-purple-100 shadow-xl flex items-center justify-center relative hover:scale-110 transition duration-500">
-                <div class="text-4xl font-black text-purple-600">03</div>
-                <div class="absolute -top-2 -right-2 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center shadow-md">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                </div>
+        <div class="flex flex-col items-center animate-float-medium delay-150 group">
+            <div class="w-28 h-28 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-purple-900/5 flex items-center justify-center relative transition-transform duration-500 group-hover:scale-110">
+                <span class="text-3xl font-black text-slate-900/10 absolute">03</span>
+                <svg class="w-10 h-10 text-purple-600 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
             </div>
-            <h3 class="mt-6 font-bold text-lg text-slate-900">Kirim Otomatis</h3>
-            <p class="text-sm text-slate-500 text-center max-w-xs mt-2">Klik kirim, sistem akan memproses email ke semua tujuan.</p>
+            <h3 class="mt-6 font-bold text-base text-slate-900">Kirim</h3>
+            <p class="text-xs text-slate-500 text-center max-w-[150px] mt-2 leading-relaxed">Sistem memproses email ke semua tujuan.</p>
         </div>
     </div>
 </div>
 
-<div class="max-w-5xl mx-auto px-4 mb-20">
-    <div class="bg-slate-900 rounded-3xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-20"></div>
+<div class="max-w-5xl mx-auto px-4 mb-20 animate-fade-in-up delay-200">
+    <div class="bg-slate-900 rounded-[2.5rem] p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center gap-12 group">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 group-hover:opacity-30 transition-opacity duration-1000"></div>
         <div class="md:w-1/2 relative z-10">
-            <div class="inline-block px-3 py-1 bg-green-900/50 border border-green-700/50 rounded-full text-green-400 text-xs font-bold mb-4 uppercase">🛡️ Security First</div>
-            <h2 class="text-3xl font-bold text-white mb-4">Data Anda Aman.</h2>
-            <p class="text-slate-400 leading-relaxed mb-6">Sistem Stateless Processing memastikan data Anda tidak disimpan di server.</p>
+            <div class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 text-[10px] font-bold mb-4 uppercase tracking-wider">
+                🛡️ Security First Architecture
+            </div>
+            <h2 class="text-3xl font-bold text-white mb-4 tracking-tight">Privasi Data Terjamin.</h2>
+            <p class="text-slate-400 leading-relaxed mb-6 text-sm">
+                Sistem kami menggunakan metode <strong class="text-white">Stateless Processing</strong>. File CV Anda hanya transit di RAM untuk dikirim, kemudian langsung dihapus otomatis. Tidak ada log penyimpanan.
+            </p>
         </div>
         <div class="md:w-1/2 flex justify-center shield-container">
             <div class="w-48 h-56 relative shield-3d">
-                <svg class="w-full h-full text-blue-500 drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                <svg class="w-full h-full text-blue-500 drop-shadow-[0_0_50px_rgba(59,130,246,0.3)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // 1. Toggle Logic
     function toggleSosmed() {
         document.getElementById('areaSosmed').classList.toggle('hidden');
         document.getElementById('arrowSosmed').classList.toggle('rotate-180');
     }
     function toggleMulti() {
         document.getElementById('areaMulti').classList.toggle('hidden');
-        document.getElementById('iconMulti').classList.toggle('rotate-45');
+        document.getElementById('iconMulti').classList.toggle('rotate-180');
     }
 
-    // 2. File Upload & Validation Logic
     function updateFileName(input) {
         const fileNameText = document.getElementById('fileNameText');
         const iconUpload = document.getElementById('iconUpload');
@@ -256,36 +273,37 @@
         const uploadBox = document.getElementById('uploadBox');
         const btnSubmit = document.getElementById('btnSubmit');
         const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
 
         if (input.files && input.files.length > 0) {
             const file = input.files[0];
             
-            // Cek PDF
             if (file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf")) {
-                // Sukses
+                // VALID: Tampilkan Nama File (Truncated by CSS)
                 fileNameText.textContent = file.name;
                 fileNameText.classList.add("text-slate-900", "font-bold");
+                fileNameText.classList.remove("text-slate-500");
                 
+                // Ubah Visual
                 iconUpload.classList.add('hidden');
                 iconCheck.classList.remove('hidden');
-                
-                iconContainer.classList.remove('bg-black');
-                iconContainer.classList.add('bg-green-600');
-                uploadBox.classList.add('border-green-500', 'bg-green-50');
+                iconContainer.classList.remove('bg-slate-200', 'text-slate-500');
+                iconContainer.classList.add('bg-emerald-500', 'text-white');
+                uploadBox.classList.add('border-emerald-500', 'bg-emerald-50/50');
+                uploadBox.classList.remove('border-slate-300', 'bg-slate-50');
 
-                // AKTIFKAN TOMBOL
+                // ENABLE BUTTON (Jadi Hitam Gagah)
                 btnSubmit.disabled = false;
-                btnSubmit.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed', 'shadow-none');
-                btnSubmit.classList.add('bg-black', 'text-white', 'hover:bg-slate-800', 'shadow-lg');
-                btnText.textContent = "KIRIM LAMARAN PROFESIONAL";
+                btnSubmit.classList.remove('bg-slate-200', 'text-slate-400', 'cursor-not-allowed', 'shadow-none');
+                btnSubmit.classList.add('bg-slate-900', 'text-white', 'hover:bg-black', 'shadow-xl', 'hover:scale-[1.02]');
+                btnText.textContent = "KIRIM LAMARAN SEKARANG";
+                btnIcon.classList.remove('opacity-50');
             } else {
-                // Gagal (Bukan PDF)
-                alert("Maaf, hanya menerima file format PDF!");
-                input.value = ""; // Reset
+                alert("Mohon upload file dengan format PDF saja.");
+                input.value = ""; 
                 resetUploadUI();
             }
         } else {
-            // Cancel
             resetUploadUI();
         }
     }
@@ -298,25 +316,27 @@
         const uploadBox = document.getElementById('uploadBox');
         const btnSubmit = document.getElementById('btnSubmit');
         const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
 
         fileNameText.textContent = "Klik untuk pilih file PDF...";
         fileNameText.classList.remove("text-slate-900", "font-bold");
+        fileNameText.classList.add("text-slate-500");
         
         iconUpload.classList.remove('hidden');
         iconCheck.classList.add('hidden');
-        
-        iconContainer.classList.add('bg-black');
-        iconContainer.classList.remove('bg-green-600');
-        uploadBox.classList.remove('border-green-500', 'bg-green-50');
+        iconContainer.classList.add('bg-slate-200', 'text-slate-500');
+        iconContainer.classList.remove('bg-emerald-500', 'text-white');
+        uploadBox.classList.remove('border-emerald-500', 'bg-emerald-50/50');
+        uploadBox.classList.add('border-slate-300', 'bg-slate-50');
 
-        // MATIKAN TOMBOL
+        // DISABLE BUTTON
         btnSubmit.disabled = true;
-        btnSubmit.classList.add('bg-slate-300', 'text-slate-500', 'cursor-not-allowed', 'shadow-none');
-        btnSubmit.classList.remove('bg-black', 'text-white', 'hover:bg-slate-800', 'shadow-lg');
+        btnSubmit.classList.add('bg-slate-200', 'text-slate-400', 'cursor-not-allowed', 'shadow-none');
+        btnSubmit.classList.remove('bg-slate-900', 'text-white', 'hover:bg-black', 'shadow-xl', 'hover:scale-[1.02]');
         btnText.textContent = "UPLOAD CV DULU...";
+        btnIcon.classList.add('opacity-50');
     }
 
-    // 3. Submit Animation
     const form = document.getElementById('jobForm');
     form.addEventListener('submit', function() {
         if(form.checkValidity()){
